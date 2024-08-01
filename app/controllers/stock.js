@@ -1,14 +1,17 @@
 const stock=require('../models/stock.model')
-
+const { agenda } = require("../../app/jobs/AgendaJobs");
 
 exports.addStocksData = async (req, res, next) => {
     try {
         const newStock = new stock(req.body);
-        let dd=await newStock.save();
-         console.log(dd)
+        let stockData=await newStock.save();
+         
+
+        //  if(dd){
+        //   await agenda.schedule('15 second', "TESTING");
+        //  }
         return res.status(200).json({
             statusCode: 200,
-            dd,
             message: "Stock data successfully added."
         });
     } catch (error) {

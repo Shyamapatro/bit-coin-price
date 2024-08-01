@@ -4,7 +4,7 @@ const Agenda = require("agenda");
 const basicAuth = require("express-basic-auth");
 const db = require("./app/models");
 const app = express();
-const agenda = new Agenda({ db: { address: db.url, collection: "jobs" } }); // Initialize Agenda with your MongoDB URL
+const agenda = require('./app/jobs')
 const Agendash = require("agendash");
 app.use(bodyParser.urlencoded({ extended: true }));
 
