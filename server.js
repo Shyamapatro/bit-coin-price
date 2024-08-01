@@ -56,9 +56,9 @@ app.get("/healthcheck", (req, res) => {
 
 // Routes
 require("./app/routes/Stock/stock")(app);
-
-app.listen(3030, () => {
-  console.log("Server is running on port 3030");
+let PORT=process.env.PORT || 4000
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 module.exports = app;
